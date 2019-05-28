@@ -1,0 +1,86 @@
+extends insurerDashboardLayout
+
+block variables
+  -var activePage = 'badloans'
+block content
+  .col-md-6.panel-info
+    .content-box-header.panel-heading
+      .panel-title Collateral Return ENS
+      | 							
+      .panel-options
+        a(href="#", data-rel="collapse")
+          i.glyphicon.glyphicon-refresh
+        | 								
+        a(href="#", data-rel="reload")
+          i.glyphicon.glyphicon-cog
+    | 			  			
+    .content-box-large.box-with-header
+      h5
+        | Return ENS Domain to Borrower Account: 
+        strong#borrower #{borrower}
+      fieldset
+        .col-sm-3
+          label ENS Domain:
+        .col-sm-2
+          label #{ens.ensDomain}
+      fieldset
+        .col-sm-3
+          label Collateral Value:
+        .col-sm-2
+          label #{ens.value}
+      fieldset
+        .col-sm-3
+          label Transfer Status:
+        .col-sm-2
+          label#ensstatus Pending
+      fieldset
+        .col-sm-4.pull-right
+          button.btn.btn-primary(type="submit")
+            | Transfer
+            
+  .col-md-6.panel-info
+    .content-box-header.panel-heading
+      .panel-title Collateral Return ERC20 Token
+      | 							
+      .panel-options
+        a(href="#", data-rel="collapse")
+          i.glyphicon.glyphicon-refresh
+        | 								
+        a(href="#", data-rel="reload")
+          i.glyphicon.glyphicon-cog
+    | 			  			
+    .content-box-large.box-with-header
+      h5
+        | Return Tokens to Borrower Account:   
+        strong#borrower #{borrower}
+      fieldset
+        .col-sm-3
+          label Token Name:
+        .col-sm-2
+          label #{token.erc20Token}
+      fieldset
+        .col-sm-3
+          label Token Address:
+        .col-sm-2
+          label#tokenAddress #{token.erc20Address}
+      fieldset
+        .col-sm-3
+          label Token Amount:
+        .col-sm-2
+          label#tokenAmount #{token.amount}
+      fieldset
+        .col-sm-3
+          label Collateral Value:
+        .col-sm-2
+          label #{token.value} ETH
+      fieldset
+        .col-sm-3
+          label Transfer Status:
+        .col-sm-2
+          label#tokenstatus Pending
+      fieldset
+        .col-sm-4.pull-right
+          button.btn.btn-primary.returnToken
+            | Transfer
+      
+                

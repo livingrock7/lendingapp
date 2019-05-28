@@ -1,0 +1,101 @@
+[
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 0,
+        "insurancePremiumRate": 6.13,
+        "marginRate": 6.13,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 1,
+        "insurancePremiumRate": 5.40,
+        "marginRate": 5.40,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 2,
+        "insurancePremiumRate": 5.00,
+        "marginRate": 5.00,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 3,
+        "insurancePremiumRate": 4.00,
+        "marginRate": 4.00,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 4,
+        "insurancePremiumRate": 2.48,
+        "marginRate": 2.48,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 5,
+        "insurancePremiumRate": 1.65,
+        "marginRate": 1.65,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 6,
+        "insurancePremiumRate": 1.04,
+        "marginRate": 1.04,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 7,
+        "insurancePremiumRate": 0.63,
+        "marginRate": 0.63,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  },
+  {
+    "model": "Interest",
+    "keys": ["creditScore"],
+    "data": {
+        "creditScore": 8,
+        "insurancePremiumRate": 0.30,
+        "marginRate": 0.30,
+        "riskFreeRate": 4.00,
+        "platformFee": 0.50
+    }
+  }
+]

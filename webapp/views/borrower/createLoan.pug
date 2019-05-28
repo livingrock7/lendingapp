@@ -1,0 +1,55 @@
+extends borrowerDashboardLayout
+
+block variables
+  -var activePage = 'loanform'
+block content
+  .content-box-large
+    .panel-heading
+      .panel-title=title
+    .panel-body
+      form.form-horizontal(role='form', method='POST', action='/borrower/createLoanRequest')
+        .form-group
+          label.control-label.col-md-2 Principal
+          .col-sm-2 #{data.principal}
+            input.form-control(type='hidden', name='principal', value=data.principal) 
+        .form-group
+          label.control-label.col-md-2 Duration
+          .col-sm-2 #{data.duration}
+            input.form-control(type='hidden', name='duration', value=data.duration)
+        .form-group
+          label.control-label.col-md-2 Net Interest
+          .col-sm-2 #{netInterest} %
+            input.form-control(type='hidden', name='interest', value=netInterest)
+        .form-group
+          label.control-label.col-md-2 Risk Rating
+          .col-sm-2 #{data.riskRating}
+            input.form-control(type='hidden', name='riskRating', value=data.riskRating)
+        .form-group
+          label.control-label.col-md-2 Valid Till
+          .col-sm-2 #{data.validtill}
+            input.form-control(type='hidden', name='validtill', value=data.validtill)
+        .form-group
+          label.control-label.col-md-2 Use
+          .col-sm-2 #{data.use}
+            input.form-control(type='hidden', name='use', value=data.use)
+        .form-group
+          label.control-label.col-md-2 ENS Domain Collateral
+          .col-sm-2 #{data.ensDomain}
+            input.form-control(type='hidden', name='ensDomain', value=data.ensDomain)
+            input.form-control(type='hidden', name='ensValue', value=ens)
+        .form-group
+          label.control-label.col-md-2 ERC20 Token
+          .col-sm-2 #{data.token}
+            input.form-control(type='hidden', name='token', value=data.token)
+        .form-group
+          label.control-label.col-md-2 ERC20 Token Amount
+          .col-sm-2 #{data.tokenAmount}
+            input.form-control(type='hidden', name='tokenAmount', value=data.tokenAmount)
+            input.form-control(type='hidden', name='tokenValue', value=token)
+        .form-group
+          label.control-label.col-md-2 Total Collateral Value
+          .col-sm-2 #{collateral} ETH
+            input.form-control(type='hidden', name='collateralValue', value=collateral)
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-primary(type='submit') Create Loan Request

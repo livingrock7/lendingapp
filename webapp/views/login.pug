@@ -1,0 +1,45 @@
+doctype html
+head
+  title Smart Credit
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  // Bootstrap
+  link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+  // styles
+  link(href='/stylesheets/styles.css', rel='stylesheet')
+  link(href='/stylesheets/style.css', rel='stylesheet')
+  // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+  // WARNING: Respond.js doesn't work if you view the page via file://
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+.header
+  .container
+    .row
+      .col-md-12
+        // Logo
+        .logo
+          h1
+            a(href='#') Smart Credit
+.page-content.container
+  .row
+    .col-md-2.col-md-offset-2
+      .login-wrapper
+        .box
+          .content-wrap
+            h6 Sign In
+            if error_message
+              .regular-warning
+                | #{error_message}
+            form.form-horizontal(role='form', method='POST', action='/signin')
+              input.form-control(type='text', placeholder='Email', name='email')
+              input.form-control(type='password', placeholder='Password', name='password')
+              button.btn.btn-primary.signup(type='submit', name='role', value='lender') Login as Lender
+              button.btn.btn-primary.signup(type='submit', name='role', value='borrower') Login as Borrower
+              button.btn.btn-primary.signup(type='submit', name='role', value='merchant') Login as Merchant
+              button.btn.btn-primary.signup(type='submit', name='role', value='insurer') Login as Insurer
+
+
+// jQuery (necessary for Bootstrap's JavaScript plugins)
+script(src='https://code.jquery.com/jquery.js')
+// Include all compiled plugins (below), or include individual files as needed
+script(src='/bootstrap/js/bootstrap.min.js')

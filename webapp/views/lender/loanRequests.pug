@@ -1,0 +1,35 @@
+extends lenderDashboardLayout
+
+block variables
+  -var activePage = 'loanRequests';
+
+block content
+  .content-box-large
+    .panel-body
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Loan
+              th Duration
+              th Interest
+              th Principal
+              th Use
+              th Date
+              th Collateral
+              th Risk
+          tbody
+          each data in loans_list
+            tr
+              td #{data.id}
+              td #{data.duration} days left
+              td #{data.interest} %
+              td #{data.principal} ETH
+              td #{data.use}
+              td
+                -var myDate = new Date(data.createdAt);
+                | #{(myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()}
+              td #{(data.ensDomain.value + data.token.value)} ETH
+              td #{data.userRiskRating}
+              td
+                a.button.btn.btn-success.custom(href='approveLoan/' + data.id) Approve

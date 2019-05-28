@@ -1,0 +1,65 @@
+doctype html
+html
+  // -Variables to set active page in sidebar
+  block variables
+    -var activePage = 'settings'
+
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Bootstrap
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(href='/vendors/form-helpers/css/bootstrap-formhelpers.min.css', rel='stylesheet')
+
+  body
+    .header
+      .container
+        .row
+          .col-md-5
+            .logo
+              h1
+                a Smart Credit
+          .col-md-7
+            .navbar.navbar-inverse(role='banner')
+              nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+                ul.nav.navbar-nav
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      | John Doe
+                      b.caret
+                    ul.dropdown-menu.animated.fadeInUp
+                      li
+                        a(href='/users/insurer/settings') Settings
+                      li
+                        a(href='/logout') Logout
+    .page-content
+      .panel-body
+        if data == null
+          form.form-horizontal(role='form', method='POST', action='/users/insurer/settings' encType='multipart/form-data')
+            .form-group
+              label.col-sm-2.control-label ETH Address
+              .col-sm-4
+                input.form-control(type='text' placeholder='ETH Address' name='ethAddress')
+              button.btn.btn-primary(type='submit') Save
+        else if data != null
+          form.form-horizontal(role='form', method='POST', action='/users/insurer/settings' encType='multipart/form-data')
+            .form-group
+              label.col-sm-2.control-label ETH Address
+              .col-sm-4
+                input.form-control(type='text' placeholder='ETH Address' name='ethAddress' value=data.ethAddress)
+              button.btn.btn-primary(type='submit') Save
+          if status == 'success'
+            .alert.alert-success.col-md-offset-2
+              a.close(href='#', data-dismiss='alert') &times;
+              strong Saved!
+              |  Ethereum address saved Successfully
+          else if status == 'error'
+            .alert.alert-danger.col-md-offset-2
+              a.close(href='#', data-dismiss='alert') &times;
+              strong Error!
+              |  Something Went Wrong.
+
+script(src='/javascripts/jquery.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/vendors/form-helpers/js/bootstrap-formhelpers.min.js')

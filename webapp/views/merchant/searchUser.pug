@@ -1,0 +1,18 @@
+extends merchantDashboardLayout
+
+block variables
+  -var activePage = 'creditform'
+
+block content
+  .panel-heading
+    .panel-title=title
+  .panel-body
+    form(role='form', method='POST', action='/merchant/search')
+      .input-group.form.col-md-3.col-md-offset-1
+        input.form-control(type='text', name='username', placeholder='User name')
+        span.input-group-btn
+          button.btn.btn-primary(type='submit') Search
+  if users
+    #list-tab.list-group(role="tablist")
+    each user in users
+      a#list-home-list.list-group-item.list-group-item-action(data-toggle="list", href="createCredit/" + user.userId) #{user.user}

@@ -1,0 +1,60 @@
+doctype html
+html
+  // -Variables to set active page in sidebar
+  block variables
+    -var activePage = 'badloans'
+
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Bootstrap
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/forms.css')
+    link(rel='stylesheet', href='/stylesheets/snackbar.min.css')
+    link(href='/vendors/form-helpers/css/bootstrap-formhelpers.min.css', rel='stylesheet')
+
+
+  body
+    .header
+      .container
+        .row
+          .col-md-5
+            .logo
+              h1
+                a(href='#') Smart Credit
+          .col-md-7
+            .navbar.navbar-inverse(role='banner')
+              nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+                ul.nav.navbar-nav
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      | John Doe
+                      b.caret
+                    ul.dropdown-menu.animated.fadeInUp
+                      li
+                        a(href='/users/insurer/settings') Settings
+                      li
+                        a(href='/logout') Logout
+    .page-content
+      .row
+        .col-md-2
+          .sidebar.content-box(style='display: block;')
+            ul.nav
+              li(class={'current': activePage == 'badloans'})
+                a(href='/insurer/badloans') Bad Loans
+        .col-md-10
+          .content-box-large
+            block content
+
+link(href='/vendors/datatables/dataTables.bootstrap.css', rel='stylesheet', media='screen')
+
+script(src='/javascripts/jquery.js')
+script(src='/javascripts/web3js.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/javascripts/custom.js')
+script(src='/javascripts/abi.js')
+script(src='/javascripts/snackbar.min.js')
+
+script(src='/vendors/form-helpers/js/bootstrap-formhelpers.min.js')

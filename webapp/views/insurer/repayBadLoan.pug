@@ -1,0 +1,19 @@
+extends insurerDashboardLayout
+
+block variables
+  -var activePage = 'badloans';
+  
+block content
+  .content-box-large
+    .panel-body
+      h4
+        | Transfer 
+        span#amount #{data.principal} 
+        | ETH to the account 
+        span#loanContract #{data.loanContractAddress}
+        |  for the orderbook id 
+        span#orderbookId #{data.OrderBookId} 
+      h4
+        | Borrower collateral will be transferred to your account  
+        span#borrower #{insurer}
+      a.button.btn.btn-success.repay Transfer

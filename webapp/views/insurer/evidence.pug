@@ -1,0 +1,78 @@
+doctype html
+html
+
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Bootstrap
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/forms.css')
+    link(rel='stylesheet', href='/stylesheets/snackbar.min.css')
+    link(href='/vendors/form-helpers/css/bootstrap-formhelpers.min.css', rel='stylesheet')
+
+
+  body
+    .header
+      .container
+        .row
+          .col-md-5
+            .logo
+              h1
+                a(href='#') Smart Credit
+          .col-md-7
+            .navbar.navbar-inverse(role='banner')
+              nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+                ul.nav.navbar-nav
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      | John Doe
+                      b.caret
+                    ul.dropdown-menu.animated.fadeInUp
+                      li
+                        a(href='/users/insurer/settings') Settings
+                      li
+                        a(href='/logout') Logout
+    .page-content
+      .row
+        .col-md-12(style={'display': 'flex', 'align-items': 'center', 'justify-content': 'center'})
+          h2 Evidence Data
+      .row
+        .col-md-12
+          .content-box-large
+            .panel-body
+              .table-responsive
+                table.table
+                  thead
+                    tr
+                      th Type
+                      th Timestamp
+                      th User1
+                      th User1 DataType
+                      th User2
+                      th User2 DataType
+
+                  tbody
+                    each data in evidence_list
+                      tr
+                        td #{data.type}
+                        td 
+                          -var myDate = new Date(data.timestamp * 1000);
+                          | #{myDate}
+                        td #{data.user1}
+                        td #{data.userDataType1}
+                        td #{data.user2}
+                        td #{data.userDataType2}
+      .row
+        .col-md-12(style={'display': 'flex', 'align-items': 'center', 'justify-content': 'center'})
+          a.button.btn.btn-success.custom(href='/insurer/generateEvidence/' + id target="_blank") Generate Evidence PDF
+          
+
+link(href='/vendors/datatables/dataTables.bootstrap.css', rel='stylesheet', media='screen')
+
+script(src='/javascripts/jquery.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/javascripts/custom.js')
+
+script(src='/vendors/form-helpers/js/bootstrap-formhelpers.min.js')

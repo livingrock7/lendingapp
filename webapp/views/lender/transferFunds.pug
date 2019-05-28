@@ -1,0 +1,32 @@
+extends lenderDashboardLayout
+
+block variables
+  -var activePage = 'loanRequests';
+  
+block content
+  .col-md-12.panel-info
+    .content-box-header.panel-heading
+      .panel-title Loan Request Approved
+      | 							
+      .panel-options
+        a(href="#", data-rel="collapse")
+          i.glyphicon.glyphicon-refresh
+        | 								
+        a(href="#", data-rel="reload")
+          i.glyphicon.glyphicon-cog
+    | 			  			
+    .content-box-large.box-with-header
+      h4
+        | You approved Loan of OrderBook Id   
+        span#orderbookId #{data.OrderBookId} 
+        span with #{data.principal} ETH for #{data.duration} days with #{data.interest}% interest for user with risk rating #{userRiskRating}
+      h4
+        | Transfer  
+        span#principal #{data.principal}
+        |  ETH to the Escrow account  
+        span
+          strong#escrow #{escrow}
+      fieldset
+        .col-sm-7.pull-right
+          button.btn.btn-primary.transferFunds
+            | Transfer

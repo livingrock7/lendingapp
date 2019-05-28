@@ -1,0 +1,41 @@
+extends insurerDashboardLayout
+
+block variables
+  -var activePage = 'badloans';
+
+block content
+  .panel-body
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Borrower
+            th Risk Rating
+            th Principal
+            th Interest
+            th Loan Use
+            th Exp. Date
+            th Collateral
+            th Evidence
+
+        tbody
+          each data in badLoans_list
+            tr
+              td #{data.user}
+              td #{data.userRiskRating}
+              td #{data.principal} ETH
+              td #{data.interest} %
+              td #{data.use}
+              td 
+                -var myDate = new Date(data.expirationDate);
+                | #{(myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()}
+              td #{data.intialCollateralValue} ETH
+              td 
+                a(href="evidence/" + data.OrderBookId) link
+              td
+                if data.isRepaidByInsurer == false
+                  a.button.btn.btn-success.custom(href='repay/' + data.id) Repay Bad Loan
+              td
+                if data.isRepaidByInsurer == true
+                  a.button.btn.btn-success.custom(href='collateral/' + data.id) Return Collateral
+                

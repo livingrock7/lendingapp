@@ -1,0 +1,37 @@
+extends merchantDashboardLayout
+
+block variables
+  -var activePage = 'creditform'
+  
+block content
+  .panel-heading
+    .panel-title=title
+  .panel-body
+    form.form-horizontal(role='form', method='POST', action='/merchant/createCredit')
+      .form-group
+        label.control-label.col-md-2 Username
+        .col-sm-2 #{user.user}
+      .form-group
+        label.control-label.col-md-2 Risk Rating
+        .col-sm-2 #{user.borrowerRiskRating}
+      .form-group
+        label.control-label.col-md-2 Current Loan Volume
+        .col-sm-2 14 ETH
+      .form-group
+        label.control-label.col-md-2 Max New Loans
+        .col-sm-2 6 ETH
+      .form-group
+        label.control-label.col-md-2 Principal
+        .col-sm-2
+          input.form-control#principal(name='principal', placeholder='Principal', type='text')
+      .form-group
+        label.control-label.col-md-2 Duration
+        .col-sm-2
+          input.form-control#duration(name='duration', placeholder='Duration', type='text')
+      .form-group
+        label.control-label.col-md-2 Daily Interest
+        .col-sm-2
+          input.form-control#interest(name='interest', placeholder='Daily Interest', type='text')
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-primary#lend(type='submit') Credit

@@ -1,0 +1,49 @@
+extends borrowerDashboardLayout
+
+block variables
+  -var activePage = 'loanform'
+block content
+  .content-box-large
+    .panel-heading
+      .panel-title=title
+    .panel-body
+      form.form-horizontal(role='form', method='POST', action='/borrower/loandetails')
+        .form-group
+          label.control-label.col-md-2 Principal
+          .col-sm-3
+            input.form-control(placeholder='Principal', type='text', name='principal')
+        .form-group
+          label.control-label.col-md-2 Duration
+          .col-sm-3
+            input.form-control(placeholder='Duration', type='text', name='duration')
+        .form-group
+          label.control-label.col-md-2 Annual Interest
+          .col-sm-3
+            input.form-control( placeholder='Annual Interest', type='number', name='interest', min=annualInterest, step='0.1', value=annualInterest, onkeydown='return false')
+        .form-group
+          label.control-label.col-md-2 Risk Rating
+          .col-sm-3
+            input.form-control( placeholder='Risk Rating', type='text', name='riskRating', value=riskRating, readOnly)
+        .form-group
+          label.control-label.col-md-2 Valid Till
+          .col-sm-3
+            .bfh-datepicker(data-format="y-m-d", data-date="today", data-name="validtill")
+        .form-group
+          label.control-label.col-md-2 Use
+          .col-sm-3
+            input.form-control( placeholder='Use', type='text', name='use')
+        .form-group
+          label.control-label.col-md-2 ENS Domain Collateral
+          .col-sm-3
+            input.form-control(placeholder='ENS Domain', type='text', name='ensDomain')
+        .form-group
+          label.control-label.col-md-2 ERC20 Token
+          .col-sm-3
+            input.form-control( placeholder='ERC20 Token', type='text', name='token')
+        .form-group
+          label.control-label.col-md-2 ERC20 Token Amount
+          .col-sm-3
+            input.form-control( placeholder='ERC20 Token Amount', type='text', name='tokenAmount')
+        .form-group
+          .col-sm-offset-4.col-sm-10
+            button.btn.btn-primary(type='submit') Calculate Collateral Value

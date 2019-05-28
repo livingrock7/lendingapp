@@ -1,0 +1,39 @@
+extends borrowerDashboardLayout
+
+block variables
+  -var activePage = 'myLoanRequests';
+
+block content
+  .content-box-large
+    .panel-body
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Loan
+              th Duration
+              th Interest
+              th Principal
+              th Original Date
+              th Collateral
+              th Status
+          tbody
+          each data in loans_list
+            tr
+              td #{data.id}
+              td #{data.duration} days left
+              td #{data.interest} %
+              td #{data.principal} ETH
+              td
+                -var myDate = new Date(data.createdAt);
+                | #{(myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()}
+              td #{(data.ensDomain.value + data.token.value)} ETH
+              td
+                .tag.label.btn-info.md
+                  span #{data.status}
+              td
+                if data.status == 'collateral due'
+                  a.button.btn.btn-success.custom(href='transferCollateral/' + data.id) Collateral
+              td
+                if data.status != 'terminated'
+                  a.button.btn.btn-success.custom(href='terminate/' + data.id) Terminate

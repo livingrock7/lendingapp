@@ -1,0 +1,41 @@
+extends merchantDashboardLayout
+
+block variables
+  -var activePage = 'mycredits';
+
+block content
+  .panel-body
+    .table-responsive
+      table.table
+        thead
+          tr
+            th Loan
+            th Borrower
+            th Duration
+            th Interest
+            th Principal
+            th Outstanding Amount
+            th Orig. Date
+            th Exp. Date
+            th Loan Status
+
+        tbody
+        each data in mycredits_list
+          tr
+            td #{data.id}
+            td JohnBoe
+            td #{data.duration} 
+              if data.duration != ""
+                | days left
+            td #{data.interest} %
+            td #{data.principal} ETH
+            td #{data.outstandingAmount} ETH
+            td 
+              -var myDate = new Date(data.originalDate);
+              | #{(myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()}
+            td 
+              -var myDate = new Date(data.expirationDate);
+              | #{(myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()}
+            td 
+              .tag.label.btn-info.md
+                span #{data.status}

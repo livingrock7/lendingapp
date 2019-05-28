@@ -1,0 +1,73 @@
+/* Login Screen*/
+.login-wrapper {
+  width: 350%;
+}
+
+.login-wrapper .box .content-wrap {
+  width: 42%;
+}
+
+.login-wrapper .box .signup {
+  padding: 7px 15px;
+}
+
+.btn-primary {
+  margin: 0px 20px 20px 20px;
+}
+
+/*
+* Loan Status Tag Color Codes
+*/
+.btn-active-info {
+    color: #ffffff;
+    background-color: #0c9204;
+    border-color: #46b8da;
+}
+
+.btn-closed-info {
+    color: #ffffff;
+    background-color: #c90000;
+    border-color: #46b8da;
+}
+
+.btn-repay-info {
+    color: #ffffff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.label {
+  font-size: 100%;
+}
+
+/*Required for fixing the column size of table*/
+table {
+  table-layout: fixed;
+}
+
+td {
+  word-wrap: break-word;
+}
+
+.custom {
+  width: auto;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+td{
+  overflow: hidden;
+}
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+
+.regular-warning {
+  font-weight: bold;
+  color: #eb4242;
+}

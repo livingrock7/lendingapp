@@ -1,0 +1,99 @@
+doctype html
+html
+  // -Variables to set active page in sidebar
+  block variables
+    -var activePage = 'settings'
+
+  head
+    title= title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // Bootstrap
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='/vendors/form-helpers/css/bootstrap-formhelpers.min.css', rel='stylesheet')
+
+  body
+    .header
+      .container
+        .row
+          .col-md-5
+            .logo
+              h1
+                a#borrower Smart Credit
+          .col-md-7
+            .navbar.navbar-inverse(role='banner')
+              nav.collapse.navbar-collapse.bs-navbar-collapse.navbar-right(role='navigation')
+                ul.nav.navbar-nav
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown')
+                      | #{user.user}
+                      b.caret
+                    ul.dropdown-menu.animated.fadeInUp
+                      li
+                        a(href='/users/borrower/settings') Settings
+                      li
+                        a(href='/logout') Logout
+    .content-box-large
+      .page-content
+        .panel-body
+          form.form-horizontal(role='form' action='/users/borrower/settings' method='POST' encType='multipart/form-data')
+            .form-group
+              label.col-sm-2.control-label ETH Address
+              .col-sm-4
+                input.form-control(type='text' placeholder='ETH Address' name='ethAddress' value=data.ethAddress)
+            .form-group
+              label.col-sm-2.control-label Amazon Merchant Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='Amazon Rating' name='amazonRating' value=data.amazonRating)
+            .form-group
+              label.col-sm-2.control-label Alibaba Merchant Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='Alibaba Rating' name='alibabaRating' value=data.alibabaRating)
+            .form-group
+              label.col-sm-2.control-label AirBNB Landlord Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='AirBNB Rating' name='airbnbRating' value=data.airbnbRating)
+            .form-group
+              label.col-sm-2.control-label EBay Merchant Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='EBay Rating' name='ebayRating' value=data.ebayRating)
+            .form-group
+              label.col-sm-2.control-label Linkedin
+              .col-sm-4
+                input.form-control(type='text' placeholder='Linkedin Profile Link' name='linkedin' value=data.linkedin)
+            .form-group
+              label.col-sm-2.control-label Facebook
+              .col-sm-4
+                input.form-control(type='text' placeholder='Facebook Profile Link' name='facebook' value=data.facebook)
+            .form-group
+              label.col-sm-2.control-label Job
+              .col-sm-4
+                input#icondemo(type="file", name='jobCertificate', placeholder='Job')
+            .form-group
+              label.col-sm-2.control-label Legal Identity Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='LEI' name='legalIdentity' value=data.leID)
+            .form-group
+              label.col-sm-2.control-label Upwork Identifier
+              .col-sm-4
+                input.form-control(type='text' placeholder='Upwork Identifier' name='upwork' Value=data.upwork)
+            .form-group
+              .col-sm-offset-6.col-sm-10
+                button.btn.btn-primary(type='submit') Save
+          if status == 'success'
+            .alert.alert-success.col-md-offset-2
+              a.close(href='#', data-dismiss='alert') &times;
+              strong Saved!
+              |  Ethereum address saved Successfully
+          else if status == 'error'
+            .alert.alert-danger.col-md-offset-2
+              a.close(href='#', data-dismiss='alert') &times;
+              strong Error!
+              |  Something Went Wrong.
+
+script(src='/javascripts/jquery.js')
+script(src='/bootstrap/js/bootstrap.min.js')
+script(src='/bootstrap/js/bootstrap-filestyle.min.js')
+script(src='/javascripts/custom.js')
+script(src='/vendors/form-helpers/js/bootstrap-formhelpers.min.js')
